@@ -1,0 +1,23 @@
+version: "3.9"
+
+services:
+  web:
+    image: ghcr.io/bi-team-bk/reconciliation
+    build: .
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_NAME=$DATABASE_NAME
+      - DATABASE_PASSWORD=$DATABASE_PASSWORD
+      - DATABASE_USER=$DATABASE_USER
+      - SECRET_KEY=$SECRET_KEY
+      - DATABASE_PORT=$DATABASE_PORT
+      - DATABASE_HOST=$DATABASE_HOST_DOCKER
+      - FILE_STORAGE=$FILE_STORAGE
+      - APP_URL=$APP_URL
+      - ALLOWED_HOSTS=$ALLOWED_HOSTS
+      - MEDIA_PATH=$MEDIA_PATH
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
