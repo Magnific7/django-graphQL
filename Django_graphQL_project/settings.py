@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'graphene_django',
     'Django_graphQL_app'
 ]
 
@@ -90,7 +91,9 @@ DATABASES = {
            'PORT': config('DATABASE_PORT'),
     }
 }
-
+GRAPHENE = {
+  'SCHEMA': 'Django_graphQL_app.schema.schema'
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
