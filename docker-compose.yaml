@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   web:
-    image: ghcr.io/bi-team-bk/reconciliation
+    image: ghcr.io/django-graphQL
     volumes:
       - $PWD/media:/code/Django_graphQL_app/media
     ports:
