@@ -7,8 +7,11 @@ class createGraphQl_modal(graphene.Mutation):
     success = graphene.Boolean()
     grapgql_modal = graphene.Field(Graph_modalClass)
     
+    class Meta:
+        description = "Add user details"
+
     class Arguments:
-        user_id = graphene.String(required=True)
+        user_id = graphene.String()
         user_name = graphene.String()
         user_first_name = graphene.String()
         user_last_name = graphene.String()
@@ -20,8 +23,8 @@ class createGraphQl_modal(graphene.Mutation):
         try:
             grapgql_modal = Graph_modal.objects.create(
                 user_id=kwargs.get('user_id'),
-                    user_name=kwargs.get('user_name'), user_first_name=user_first_name,
-                    user_last_name=user_last_name,user_email=user_email,user_status=user_status,user_phone_number=user_phone_number
+                    user_name=kwargs.get('user_name'), user_first_name=kwargs.get('user_first_name'),
+                    user_last_name=kwargs.get('user_last_name'),user_email=kwargs.get('user_email'),user_status=kwargs.get('user_status'),user_phone_number=kwargs.get('user_phone_number')
             )
             
             return createGraphQl_modal(success = True, grapgql_modal = grapgql_modal)
